@@ -40,7 +40,7 @@ public class ESMUtil {
 
         stack.setStackDisplayName("§9投票特典交換用紙");
         Map<Enchantment, Integer> encs = new HashMap<>();
-        encs.put(Enchantments.POWER, 114514);
+        encs.put(Enchantments.POWER, 1);
         EnchantmentHelper.setEnchantments(encs, stack);
         NBTTagCompound tag = stack.getTagCompound();
         tag.setBoolean("Unbreakable", true);
