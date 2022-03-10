@@ -62,7 +62,7 @@ public enum VoteService {
     }
 
     public static ITextComponent getPromotion(VoteService last) {
-        ItemStack stack = FNSMUtil.createVoteItem();
+        ItemStack stack = ESMUtil.createVoteItem();
         ITextComponent vi = new TextComponentString(stack.getDisplayName());
 
         if (last == null)

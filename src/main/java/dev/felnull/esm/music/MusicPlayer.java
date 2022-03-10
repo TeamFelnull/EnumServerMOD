@@ -1,6 +1,6 @@
 package dev.felnull.esm.music;
 
-import dev.felnull.esm.FNSMUtil;
+import dev.felnull.esm.ESMUtil;
 import dev.felnull.fnnbs.NBS;
 import dev.felnull.fnnbs.instrument.VanillaInstrument;
 import dev.felnull.fnnbs.player.AsyncNBSPlayer;
@@ -65,7 +65,7 @@ public class MusicPlayer {
 
     private void ring(SoundEvent soundEvent, float volume, float pitch) {
         if (soundEvent == null) return;
-        MinecraftServer server = FNSMUtil.getServer();
+        MinecraftServer server = ESMUtil.getServer();
         if (server != null) {
             server.addScheduledTask(() -> {
                 World world = getWorld(server);

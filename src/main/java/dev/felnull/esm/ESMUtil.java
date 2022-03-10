@@ -7,11 +7,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 
 import java.util.function.Consumer;
 
-public class FNSMUtil {
+public class ESMUtil {
     public static MinecraftServer getServer() {
         return FMLCommonHandler.instance().getMinecraftServerInstance();
     }
@@ -56,4 +57,17 @@ public class FNSMUtil {
             player.dropItem(stack, false, true);
     }
 
+    public static double getTPS(World world, int dim) {
+        long[] times = world.getMinecraftServer().worldTickTimes.get(dim);
+        if (times == null) return -1;
+        double worldTickTime = mean(times) * 1.0E-6D;
+        return Math.min(1000.0 / worldTickTime, 20);
+    }
+
+    private static long mean(long[] values) {
+        long sum = 0L;
+        for (long v : values)
+            sum += v;
+        return sum / values.length;
+    }
 }
