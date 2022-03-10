@@ -1,15 +1,21 @@
 package dev.felnull.esm;
 
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 
 public class ESMUtil {
@@ -32,23 +38,13 @@ public class ESMUtil {
         //     item = Items.DIAMOND;
         ItemStack stack = new ItemStack(item);
 
-        stack.setStackDisplayName("§9投票紙");
-       /* Map<Enchantment, Integer> encs = new HashMap<>();
-        encs.put(Enchantments.RIPTIDE, 0);
+        stack.setStackDisplayName("§9投票特典交換用紙");
+        Map<Enchantment, Integer> encs = new HashMap<>();
+        encs.put(Enchantments.POWER, 114514);
         EnchantmentHelper.setEnchantments(encs, stack);
-        CompoundNBT tag = stack.getOrCreateTag();
-        tag.putBoolean("Unbreakable", true);
-        tag.putInt("HideFlags", 5);
-
-        CompoundNBT display = tag.getCompound("display");
-        ListNBT lore = display.getList("Lore", 8);
-
-        IFormattableTextComponent com = new StringTextComponent("お、先輩こいつ玉とか言いだしましたよ？").withStyle(Style.EMPTY.withColor(Color.fromRgb(0x364364)));
-        IFormattableTextComponent com2 = new StringTextComponent("やっぱ好きなんですねぇ").withStyle(Style.EMPTY.withColor(Color.fromRgb(0x364364)));
-        lore.add(StringNBT.valueOf(ITextComponent.Serializer.toJson(com)));
-        lore.add(StringNBT.valueOf(ITextComponent.Serializer.toJson(com2)));
-        display.put("Lore", lore);
-        tag.put("display", display);*/
+        NBTTagCompound tag = stack.getTagCompound();
+        tag.setBoolean("Unbreakable", true);
+        tag.setInteger("HideFlags", 5);
         return stack;
     }
 

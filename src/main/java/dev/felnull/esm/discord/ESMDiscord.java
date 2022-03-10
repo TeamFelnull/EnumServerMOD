@@ -67,6 +67,7 @@ public class ESMDiscord {
     }
 
     public static void sendMessageByPlayerAsync(EntityPlayer player, String message) {
+        message = formattedtMsg(message);
         String avtURL = "https://crafatar.com/avatars/%s.png?size=128&overlay#";
         sendWebHookAsync(player.getGameProfile().getName(), String.format(avtURL, player.getGameProfile().getId()), message);
     }
