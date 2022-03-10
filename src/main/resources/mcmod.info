@@ -1,0 +1,15 @@
+[
+  {
+    "modid": "enumservermod",
+    "name": "Enum Server MOD",
+    "description": "The ikisugi enum server side mod",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "authorList": [
+      "MORIMORI0317"
+    ],
+    "credits": "Team FelNull",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
