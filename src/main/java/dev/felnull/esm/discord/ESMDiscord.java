@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.minecraft.entity.player.EntityPlayer;
 
 import javax.security.auth.login.LoginException;
@@ -34,7 +35,7 @@ public class ESMDiscord {
         inited = true;
 
         try {
-            jda = JDABuilder.createDefault(ServerConfig.getDiscordToken()).build();
+            jda = JDABuilder.createDefault(ServerConfig.getDiscordToken()).enableIntents(GatewayIntent.MESSAGE_CONTENT).build();
             jda.addEventListener(new DiscordListener());
             setStatus(OnlineStatus.IDLE, Activity.watching("サーバー起動開始"));
         } catch (LoginException e) {

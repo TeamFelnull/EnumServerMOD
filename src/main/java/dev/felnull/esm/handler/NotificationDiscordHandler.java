@@ -1,14 +1,10 @@
 package dev.felnull.esm.handler;
 
-import com.vexsoftware.votifier.model.Vote;
 import dev.felnull.esm.ESMUtil;
-import dev.felnull.esm.VoteService;
 import dev.felnull.esm.discord.ESMDiscord;
-import dev.felnull.katyouvotifier.event.VotifierEvent;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
@@ -65,7 +61,7 @@ public class NotificationDiscordHandler {
     }
 
     private static String getActiviteName() {
-        return "2022TeamEnumサーバー";
+        return "GregTech Expert 2";
     }
 
     @SubscribeEvent
@@ -97,7 +93,7 @@ public class NotificationDiscordHandler {
         }
     }
 
-    @SubscribeEvent
+    /*@SubscribeEvent
     public static void onVote(VotifierEvent e) {
         Vote v = e.getVote();
         EntityPlayerMP player = ESMUtil.getServer().getPlayerList().getPlayerByUsername(v.getUsername());
@@ -107,7 +103,7 @@ public class NotificationDiscordHandler {
         } else {
             ESMDiscord.sendMessage(String.format("%sさんが **%s** で投票しました", v.getUsername(), vs.getName()));
         }
-    }
+    }*/
 
     public static void onServerStop(FMLServerStoppingEvent e) {
         //    FNSMDiscord.setChannelMessage("起動していません");

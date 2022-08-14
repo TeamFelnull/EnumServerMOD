@@ -16,7 +16,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'com.github.johnrengelman.shadow'
 
-version = '1.1'
+version = '1.2'
 group = 'dev.felnull.enumservermod'
 archivesBaseName = 'EnumServerMOD'
 
@@ -49,9 +49,9 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854'
     shadow 'dev.felnull:felnull-java-library:1.44'
     shadow 'dev.felnull:felnull-nbs-library:1.1'
-    shadow 'net.dv8tion:JDA:5.0.0-alpha.9'
+    shadow 'net.dv8tion:JDA:5.0.0-alpha.17'
 
-    compile fg.deobf(files("libs/KatyouVotifier-1.0.jar"))
+    //compile fg.deobf(files("libs/KatyouVotifier-1.0.jar"))
 }
 shadowJar {
     classifier ''

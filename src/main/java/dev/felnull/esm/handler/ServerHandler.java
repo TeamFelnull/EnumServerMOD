@@ -3,13 +3,11 @@ package dev.felnull.esm.handler;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.vexsoftware.votifier.model.Vote;
 import dev.felnull.esm.ESMUtil;
 import dev.felnull.esm.EnumServerMOD;
 import dev.felnull.esm.VoteService;
 import dev.felnull.esm.music.MusicManager;
 import dev.felnull.fnnbs.NBS;
-import dev.felnull.katyouvotifier.event.VotifierEvent;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.ITextComponent;
@@ -40,7 +38,7 @@ public class ServerHandler {
     private static final Random random = new Random();
     private static long lastPr;
 
-    @SubscribeEvent
+   /* @SubscribeEvent
     public static void onVote(VotifierEvent e) {
         Vote v = e.getVote();
         addVoteCount(v.getUsername());
@@ -54,13 +52,13 @@ public class ServerHandler {
             VOTES.put(e.getVote().getUsername(), VOTES.get(e.getVote().getUsername()) + 1);
         }
 
-    }
+    }*/
 
     @SubscribeEvent
     public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent e) {
         if (e.player.world.isRemote)
             return;
-        e.player.sendStatusMessage(VoteService.getPromotion(null), false);
+       // e.player.sendStatusMessage(VoteService.getPromotion(null), false);
     }
 
     @SubscribeEvent
@@ -180,7 +178,7 @@ public class ServerHandler {
     }
 
 
-    @SubscribeEvent
+   /* @SubscribeEvent
     public static void onServerTick(TickEvent.ServerTickEvent e) {
         if (e.phase != TickEvent.Phase.START) return;
         if (System.currentTimeMillis() - lastPr >= 1000 * 60 * 60) {
@@ -188,5 +186,5 @@ public class ServerHandler {
             ITextComponent pr = VoteService.getPromotion(null);
             ESMUtil.sendMessageAllPlayer(pr);
         }
-    }
+    }*/
 }
